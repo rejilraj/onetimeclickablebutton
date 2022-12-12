@@ -1,0 +1,46 @@
+ const [isDisabled, setIsDisabled] = useState(false);
+
+ const toggle = () => {
+    setMessage("Order Has Placed")
+    setIsDisabled(true);
+    setTimeout(() => {setMessage("")}, 5000);
+  };
+
+
+<Pressable
+          style={{
+            backgroundColor: "#e32f45",
+            padding: 10,
+            width: 145,
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: 10,
+            alignSelf: "center",
+            marginTop: 100,
+            opacity: isDisabled ? 0.8 : 1,
+          }}
+          onPress={toggle}
+          disabled={isDisabled}
+        >
+          <Text
+            style={{
+              ...theme.FONTS.Mulish_600SemiBold,
+              color: "#ffffff",
+              fontSize: 18,
+            }}
+          >
+            Place order
+          </Text>
+        </Pressable>
+
+        <Text
+          style={{
+            color: "green",
+            alignItems: "center",
+            justifyContent: "center",
+            alignSelf:"center",
+            marginTop: 20,
+          }}
+        >
+          {message}
+        </Text>
